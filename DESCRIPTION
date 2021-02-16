@@ -1,0 +1,31 @@
+Type: Package
+Package: DOSeq
+Title: Modeling expression drop-out for analysis of scRNA-Seq data
+Version: 0.0.01
+Authors@R: c(person("Krishan", "Gupta", 
+    email = "krishang@iiitd.ac.in", role = c("aut","cre")),
+    person("Debarka", "Sengupta", 
+    email = "debarka@gmail.com", role = c("aut")))
+Description: DOSeq - Modeling expression drop-out for analysis of scRNA-Seq 
+    data. DOSeq takes read count matrix and factor for drop-out ratio as input
+    and return the read count matrix with dropout. Here input parameter factor 
+    indicates drop-out ratio in expression matrix.
+URL: https://github.com/krishan57gupta/DOSeq
+BugReports: https://github.com/krishan57gupta/DOSeq/issues
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Depends: R (>= 4.0)
+biocViews: 
+    GeneExpression,
+    DifferentialExpression,
+    SingleCell
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat,
+    RUnit, 
+    BiocGenerics
+VignetteBuilder: 
+    knitr

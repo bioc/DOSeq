@@ -1,0 +1,79 @@
+---
+title: "DOSeq"
+output: rmarkdown::html_vignette
+vignette: >
+    %\VignetteIndexEntry{DOSeq}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>"
+)
+```
+
+#  DOSeq
+
+Modeling expression drop-out for analysis of scRNA-Seq data
+
+## Introduction
+
+DOSeq - Modeling expression drop-out for analysis of scRNA-Seq 
+data. DOSeq takes read count matrix and factor for drop-out ratio as input
+and return the read count matrix with dropout. Here input parameter factor 
+indicates drop-out ratio in expression matrix.
+
+## Installation
+
+The developer's version of the R package can be installed 
+with the following R commands:
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+# The following initializes usage of Bioc devel
+BiocManager::install(version='devel')
+
+BiocManager::install("DOSeq")
+```
+The github's version of the R package can be installed 
+with the following R commands:
+```r
+library(devtools)
+install_github('krishan57gupta/DOSeq')
+```
+## Vignette tutorial
+
+This vignette uses the Tung dataset, which is already inbuilt in the package, 
+to demonstrate a standard pipeline. 
+
+## Example
+
+Libraries need to be loaded before running.
+
+
+```{r setup}
+library(DOSeq)
+```
+
+### Loading tung dataset
+```{r data, message=FALSE,warning = FALSE,include=TRUE, cache=FALSE}
+samples<-DOSeq::L_Tung_single$NA19098_NA19101_count
+samples[1:5,1:5]
+```
+
+### DOSeq analysis. 
+Input: gene expression matrix with genes in rows and cells in columns.
+
+```{r main, message=FALSE,warning = FALSE, include=TRUE, cache=FALSE}
+output<-DOSeq(countData=samples, factor=.8)
+```
+
+### Showing results are in the form of gene expression with drop out
+##### Simulated gene expression matrix
+
+```{r output, message=FALSE,warning = FALSE,include=TRUE, cache=FALSE}
+output[1:5,1:5]
+```
