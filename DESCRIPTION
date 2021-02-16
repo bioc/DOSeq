@@ -1,7 +1,7 @@
 Type: Package
 Package: DOSeq
 Title: Modeling expression drop-out for analysis of scRNA-Seq data
-Version: 0.99.01
+Version: 0.99.10
 Authors@R: c(person("Krishan", "Gupta", 
     email = "krishang@iiitd.ac.in", role = c("aut","cre")),
     person("Debarka", "Sengupta", 
